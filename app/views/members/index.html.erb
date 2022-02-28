@@ -1,0 +1,20 @@
+<h1> Member </h1>
+
+<%= link_to "新增 Member", new_member_path %>
+
+<hr>
+
+<table>
+  <thead>
+    <tr>
+      <td>Member name</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @members.each do |member| %>
+    <tr>
+      <td><%= member.name %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -3,5 +3,5 @@ Rails.application.routes.draw do
 
   resources :members
 
-  root to: 'member#index'
+  root to: 'members#index'
 end
