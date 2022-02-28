@@ -1,0 +1,11 @@
+<h1>新增 Member</h1>
+
+<%= form_for(@member) do |f| %>
+  <%= f.label :name, "姓名" %>
+  <%= f.text_field :name %> <br />
+
+  <%= f.submit %>
+<% end %>
+
+<br />
+<%= link_to '回 Member 列表', members_path %>
