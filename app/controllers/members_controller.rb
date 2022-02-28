@@ -17,6 +17,20 @@ class MembersController < ApplicationController
     end
   end
 
+  def edit
+    @member = Member.find_by(id: params[:id])
+  end
+
+  def update
+    @member = member.find_by(id: params[:id])
+
+    if @member.update(member_params)
+      redirect_to members_path, notice: '資料更新成功!'
+    else
+      render :edit
+    end
+  end
+
   private
 
   def member_params
