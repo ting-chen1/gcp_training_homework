@@ -22,7 +22,7 @@ class MembersController < ApplicationController
   end
 
   def update
-    @member = member.find_by(id: params[:id])
+    @member = Member.find_by(id: params[:id])
 
     if @member.update(member_params)
       redirect_to members_path, notice: '資料更新成功!'
