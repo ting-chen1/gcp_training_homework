@@ -15,6 +15,10 @@ class AttachmentsController < ApplicationController
     end
   end
 
+  def download
+
+  end
+
   private
 
   def find_member
