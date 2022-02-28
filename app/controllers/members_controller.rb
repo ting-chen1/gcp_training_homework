@@ -31,6 +31,12 @@ class MembersController < ApplicationController
     end
   end
 
+  def destroy
+    @member = Member.find_by(id: params[:id])
+    @member.destroy if @member
+    redirect_to members_path, notice: "Member (#{@member.name}) 已刪除!"
+  end
+
   private
 
   def member_params

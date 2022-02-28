@@ -1,3 +1,10 @@
+
+<% if @member.errors.full_messages.present? %>
+  <% @member.errors.full_messages.each do |error_message| %>
+    <%= error_message %><br />
+  <% end %>
+<% end %>
+
 <%= form_for(member) do |f| %>
   <%= f.label :name, "姓名" %>
   <%= f.text_field :name %> <br />

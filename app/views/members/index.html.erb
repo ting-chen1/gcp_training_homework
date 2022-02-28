@@ -1,5 +1,9 @@
 <h1> Member </h1>
 
+<% flash.each do |type, msg| %>
+  <div> <%= msg %> </div>
+<% end %>
+
 <%= link_to "新增 Member", new_member_path %>
 
 <hr>
