@@ -1,0 +1,29 @@
+<h1> Member </h1>
+
+<% flash.each do |type, msg| %>
+  <div> <%= msg %> </div>
+<% end %>
+
+<%= link_to "新增 Member", new_member_path %>
+
+<hr>
+
+<table>
+  <thead>
+    <tr>
+      <td>Member name</td>
+      <td>action</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @members.each do |member| %>
+    <tr>
+      <td><%= member.name %></td>
+      <td>
+        <%= link_to "編輯", edit_member_path(member) %>
+        <%= link_to "刪除", member_path(member), method: "delete", data: { confirm: "確認刪除" } %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
