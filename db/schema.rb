@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_28_102859) do
+ActiveRecord::Schema.define(version: 2022_02_28_123900) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attachments", force: :cascade do |t|
+    t.bigint "member_id", null: false
+    t.string "file_name"
+    t.string "download_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["member_id"], name: "index_attachments_on_member_id"
+  end
 
   create_table "members", force: :cascade do |t|
     t.string "name", null: false
@@ -29,4 +38,5 @@ ActiveRecord::Schema.define(version: 2022_02_28_102859) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "attachments", "members"
 end
