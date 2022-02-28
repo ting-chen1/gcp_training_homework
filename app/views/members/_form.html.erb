@@ -1,6 +1,6 @@
 
-<% if @member.errors.full_messages.present? %>
-  <% @member.errors.full_messages.each do |error_message| %>
+<% if member.errors.full_messages.present? %>
+  <% member.errors.full_messages.each do |error_message| %>
     <%= error_message %><br />
   <% end %>
 <% end %>

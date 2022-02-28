@@ -1,0 +1,16 @@
+<h1>新增 attachment</h1>
+
+<% if @attachment.errors.full_messages.present? %>
+  <% @attachment.errors.full_messages.each do |error_message| %>
+    <%= error_message %><br />
+  <% end %>
+<% end %>
+
+<%= form_with(url: member_attachments_path(@attachment.member)) do |f| %>
+  <%= f.label :upload_file, "上傳檔案" %><br/>
+  <%= f.file_field :upload_file %><br/>
+
+  <%= f.submit %>
+<% end %>
+
+<%= link_to '回 Member 列表', members_path %>

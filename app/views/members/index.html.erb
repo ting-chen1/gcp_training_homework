@@ -12,6 +12,7 @@
   <thead>
     <tr>
       <td>Member name</td>
+      <td>attachments</td>
       <td>action</td>
     </tr>
   </thead>
@@ -20,8 +21,14 @@
     <tr>
       <td><%= member.name %></td>
       <td>
-        <%= link_to "編輯", edit_member_path(member) %>
-        <%= link_to "刪除", member_path(member), method: "delete", data: { confirm: "確認刪除" } %>
+        <% member.attachments.each do |attachment| %>
+          <span><%= link_to attachment.file_name, download_member_attachment_path(member, attachment) %><span>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to "上傳檔案", new_member_attachment_path(member) %>
+        <%= link_to "Member 編輯", edit_member_path(member) %>
+        <%= link_to "Member 刪除", member_path(member), method: "delete", data: { confirm: "確認刪除" } %>
       </td>
     </tr>
     <% end %>
