@@ -6,6 +6,8 @@ class AttachmentsController < ApplicationController
   end
 
   def create
+    return redirect_to request.referer if params[:upload_file].blank?
+
     if @member.attachments.create(file_name: file_name)
       redirect_to members_path, notice: "已成功上傳 #{file_name}"
     else
