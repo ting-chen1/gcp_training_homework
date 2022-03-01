@@ -59,3 +59,5 @@
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
+
+server '35.234.37.18', user: 'ting.chen', roles: %w[app db web]
