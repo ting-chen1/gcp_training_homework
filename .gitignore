@@ -40,3 +40,6 @@ yarn-debug.log*
 
 # database
 /config/database.yml
+
+# gcp credentials
+/config/mf-rd-development.json
