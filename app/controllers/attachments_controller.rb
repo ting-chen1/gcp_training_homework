@@ -1,5 +1,5 @@
 require "google/cloud/storage"
-
+require 'open-uri'
 class AttachmentsController < ApplicationController
   before_action :find_member, only: %i[new create download]
 
@@ -31,7 +31,8 @@ class AttachmentsController < ApplicationController
     attachment = @member.attachments.find(params[:id])
     bucket = find_bucket
     file = bucket.file(attachment.storage_path)
-    send_data(file, filename: attachment.file_name)
+    file_data = open(file.signed_url).read
+    send_data(file_data, filename: attachment.file_name)
   end
 
   private
