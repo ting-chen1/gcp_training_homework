@@ -1,7 +1,7 @@
 require "google/cloud/storage"
 
 class AttachmentsController < ApplicationController
-  before_action :find_member, only: %i[new create]
+  before_action :find_member, only: %i[new create download]
 
   def new
     @attachment = @member.attachments.new
@@ -17,11 +17,7 @@ class AttachmentsController < ApplicationController
 
     return render :new unless attachment.valid?
 
-    storage = Google::Cloud::Storage.new(
-      project_id: ENV['GOOGLE_CLOUD_PROJECT'],
-      credentials: ENV['GOOGLE_CLOUD_CREDENTIALS']
-    )
-    bucket = storage.bucket ENV['MY_BUCKET']
+    bucket = find_bucket
     upload_result = bucket.create_file(params[:upload_file].path, attachment.storage_path)
 
     if upload_result && attachment.save!
@@ -32,7 +28,10 @@ class AttachmentsController < ApplicationController
   end
 
   def download
-
+    attachment = @member.attachments.find(params[:id])
+    bucket = find_bucket
+    file = bucket.file(attachment.storage_path)
+    send_data(file, filename: attachment.file_name)
   end
 
   private
@@ -43,5 +42,13 @@ class AttachmentsController < ApplicationController
 
   def file_name
     params[:upload_file].original_filename
+  end
+
+  def find_bucket
+    storage = Google::Cloud::Storage.new(
+      project_id: ENV['GOOGLE_CLOUD_PROJECT'],
+      credentials: ENV['GOOGLE_CLOUD_CREDENTIALS']
+    )
+    storage.bucket ENV['MY_BUCKET']
   end
 end

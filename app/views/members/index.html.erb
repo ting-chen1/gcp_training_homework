@@ -22,7 +22,7 @@
       <td><%= member.name %></td>
       <td>
         <% member.attachments.each do |attachment| %>
-          <span><%= link_to attachment.file_name, download_member_attachment_path(member, attachment) %><span>
+          <span><%= link_to attachment.file_name, download_member_attachment_path(member, attachment), method: :post %><span>
         <% end %>
       </td>
       <td>
