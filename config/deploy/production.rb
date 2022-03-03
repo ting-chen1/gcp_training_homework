@@ -60,4 +60,4 @@
 #     # password: "please use keys"
 #   }
 
-server '35.221.224.96', user: 'ting.chen', roles: %w[app db web]
+server '34.81.112.202', user: 'ting.chen', roles: %w[app db web]
