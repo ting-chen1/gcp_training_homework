@@ -19,7 +19,7 @@
     <% @members.each do |member| %>
     <tr>
       <td><%= member.send("name_#{I18n.locale}") %></td>
-      <td><%= link_to 'show_link', member_path(member) %></td>
+      <td><%= link_to 'show_link', member_path(slug: member.slug) %></td>
     </tr>
     <% end %>
   </tbody>

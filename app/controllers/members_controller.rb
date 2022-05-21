@@ -4,7 +4,7 @@ class MembersController < ApplicationController
   end
 
   def show
-    @member = Member.find(params[:id])
+    @member = Member.find_by(slug: params[:slug])
   end
 
   def new
