@@ -40,6 +40,6 @@ class MembersController < ApplicationController
   private
 
   def member_params
-    params.require(:member).permit(:name)
+    params.require(:member).permit('name_zh-TW', 'name_en')
   end
 end
