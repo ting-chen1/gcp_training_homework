@@ -63,3 +63,5 @@ gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
 
 # for Google Cloud Storage
 gem 'google-cloud-storage', '~> 1.36', '>= 1.36.1'
+
+gem 'rails-i18n'
