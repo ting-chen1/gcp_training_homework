@@ -4,4 +4,10 @@ en:
       mameber: Mameber
     attributes:
       mameber:
-        name_en: Name
+        name_en: Name(English)
+        name_zh-TW: Name(Chinese)
+  mameber:
+    create:
+      success: 'Success to create member'
+    update:
+      success: 'Success to update Member'

@@ -4,4 +4,10 @@ zh-TW:
       mameber: 員工
     attributes:
       mameber:
-        name_zh-TW: 名稱
+        name_en: 名稱(英文)
+        name_zh-TW: 名稱(中文)
+  mameber:
+    create:
+      success: '新增 Member 成功'
+    update:
+      success: '更新 Member 成功'
