@@ -6,9 +6,9 @@
 <% end %>
 
 <%= form_for(member) do |f| %>
-  <%= f.label :name, "姓名(中文)" %>
+  <%= f.label :name, I18n.t("activerecord.attributes.mameber.name_zh-TW") %>
   <%= f.text_field 'name_zh-TW' %> <br />
-  <%= f.label :name, "姓名(英文)" %>
+  <%= f.label :name, I18n.t("activerecord.attributes.mameber.name_en") %>
   <%= f.text_field 'name_en' %> <br />
 
   <%= f.submit %>
