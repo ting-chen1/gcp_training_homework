@@ -6,8 +6,10 @@
 <% end %>
 
 <%= form_for(member) do |f| %>
-  <%= f.label :name, "姓名" %>
-  <%= f.text_field :name %> <br />
+  <%= f.label :name, "姓名(中文)" %>
+  <%= f.text_field 'name_zh-TW' %> <br />
+  <%= f.label :name, "姓名(英文)" %>
+  <%= f.text_field 'name_en' %> <br />
 
   <%= f.submit %>
 <% end %>

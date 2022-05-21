@@ -4,32 +4,20 @@
   <div> <%= msg %> </div>
 <% end %>
 
-<%= link_to "新增 Member", new_member_path %>
+<%= link_to I18n.t('new'), new_member_path %>
 
 <hr>
 
 <table>
   <thead>
     <tr>
-      <td>Member name</td>
-      <td>attachments</td>
-      <td>action</td>
+      <td><%= I18n.t("activerecord.attributes.mameber.name_#{I18n.locale}") %></td>
     </tr>
   </thead>
   <tbody>
     <% @members.each do |member| %>
     <tr>
-      <td><%= member.name %></td>
-      <td>
-        <% member.attachments.each do |attachment| %>
-          <span><%= link_to attachment.file_name, download_member_attachment_path(member, attachment), method: :post %><span>
-        <% end %>
-      </td>
-      <td>
-        <%= link_to "上傳檔案", new_member_attachment_path(member) %>
-        <%= link_to "Member 編輯", edit_member_path(member) %>
-        <%= link_to "Member 刪除", member_path(member), method: "delete", data: { confirm: "確認刪除" } %>
-      </td>
+      <td><%= member.send("name_#{I18n.locale}") %></td>
     </tr>
     <% end %>
   </tbody>
