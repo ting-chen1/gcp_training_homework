@@ -9,6 +9,6 @@ class Member < ApplicationRecord
   private
 
   def set_slug
-    self.slug = Digest::SHA2.hexdigest(name_en).first(10)
+    self.slug = Digest::SHA2.hexdigest(Time.current.to_i.to_s).first(10)
   end
 end
