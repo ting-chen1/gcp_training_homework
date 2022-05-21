@@ -1,0 +1,7 @@
+zh-TW:
+  activerecord:
+    models:
+      mameber: 員工
+    attributes:
+      mameber:
+        name_zh-TW: 名稱

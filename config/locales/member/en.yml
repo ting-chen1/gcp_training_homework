@@ -1,0 +1,7 @@
+zh-TW:
+  activerecord:
+    models:
+      mameber: Mameber
+    attributes:
+      mameber:
+        name_en: Name
