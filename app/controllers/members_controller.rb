@@ -11,7 +11,7 @@ class MembersController < ApplicationController
     @member = Member.new(member_params)
 
     if @member.save
-      redirect_to members_path, notice: '新增 Member 成功!'
+      redirect_to members_path, notice: t('.success')
     else
       render :new
     end
@@ -25,7 +25,7 @@ class MembersController < ApplicationController
     @member = Member.find_by(id: params[:id])
 
     if @member.update(member_params)
-      redirect_to members_path, notice: '資料更新成功!'
+      redirect_to members_path, notice: t('.success')
     else
       render :edit
     end
