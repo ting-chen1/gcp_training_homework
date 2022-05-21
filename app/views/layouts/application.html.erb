@@ -12,8 +12,8 @@
   <body>
     <%= yield %>
     <div>
-      <%= link_to I18n.t('chinese'), URI(request.referer).path, :locale => "zh-TW" %>
-      <%= link_to I18n.t('english'), URI(request.referer).path, :locale => "en" %>
+      <%= link_to I18n.t('chinese'), controller: controller_name, action: action_name, locale: "zh-TW" %>
+      <%= link_to I18n.t('english'), controller: controller_name, action: action_name, locale: "en" %>
     </div>
   </body>
 </html>
